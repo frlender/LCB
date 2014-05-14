@@ -1,0 +1,153 @@
+/* ========== FOOTER ============ */
+::selection {
+background: #b3d4fc;
+text-shadow: none;
+}
+
+#pageHeader {
+	height:150px;
+	margin:10px 0 25px 0;
+	background:url(header_border.gif) no-repeat left bottom;
+	position:relative;
+}
+	#pageHeader h1 {
+		margin:0 0 0 14px;
+		float:left;
+	}
+	#pageHeader a.cmap {
+		display:block;
+		text-decoration:none;
+		width:391px;
+		height:103px;
+		background:url(logo_cmap-temp.jpg) no-repeat left top;
+	}
+#loginOptions {
+	float:right;
+	padding-right:28px;
+}
+	#loginOptions {
+		font-size:11px;
+		text-transform:uppercase;
+		color:#535456;
+	}
+	#loginOptions a {
+		color:#6b6c6f;
+		text-decoration:none;
+	}
+	#loginOptions a:hover {
+		color:#96979b;
+	}
+#loginOptions .divider {
+	padding:0 15px;
+	font-size:11px;
+	color:#cccccc;
+}
+.betaLink {
+	position:absolute;
+	top:64px;
+	right:28px;
+	padding:3px 6px 4px;
+	display:inline-block;
+	background:#5cbfe9;
+	font-size:10px;
+	font-weight:bold;
+	line-height:1;
+}
+body .betaLink a {
+	color:#FFF;
+	
+	text-decoration:none;
+}
+
+
+
+/*+++++++Search form+++++++*/
+#pageHeader #searchform {
+	position:absolute;
+	top:31px;
+	right:28px;
+	width:158px;
+	height:22px;
+}
+#pageHeader #searchform #s {
+	width:134px;
+	height:18px;
+	border:#cccccc solid 1px;
+	padding:3px 4px 1px 4px;
+	position:absolute;
+	right:24px;
+	color:#999;
+	font-size:12px;
+}
+#pageHeader #searchform #s.focused {
+	color:#000;
+}
+#pageHeader #searchsubmit {
+	display:block;
+	width:24px;
+	height:24px;
+	position:absolute;
+	top:0;
+	right:0;
+}
+* html #pageHeader #searchsubmit  {
+	/* IE6 hack */
+	right:0;
+}
+
+
+
+
+
+/* ========FOOTER+++++++++*/
+#pageFooter {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #626365;
+	clear:both;
+	margin-bottom:20px;
+	margin-top:20px;
+	border-top:1px solid #064f8c;
+	font-size:11px;
+	min-height:90px;
+	width:100%;
+	position:relative;
+}
+
+#pageFooter a {
+	color:#25aae1;
+}
+#pageFooter a:visited {
+	color:#064f8c;
+}
+
+#pageFooter .copyright {
+	width:500px;
+	float:left;
+	padding:12px 0;	
+}
+
+#pageFooter .logos ul {
+	position:absolute;
+	top:12px;
+	right:0;
+	margin:0;
+}
+#pageFooter .logos li {
+	list-style:none;
+	float:left;
+	margin:0 0 0 65px;
+	padding:0;
+}
+#pageFooter .logos .lincs {
+	display:block;
+	width:180px;
+	height:60px;
+	background:url('NIH_LINCS_logo.gif') no-repeat left top;
+}
+#pageFooter .logos .broad {
+	display:block;
+	width:115px;
+	height:30px;
+	margin-top:19px;
+	background:url('logo_broad.gif') no-repeat left top;
+}

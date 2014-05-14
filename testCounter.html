@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="JS/jquery-2.0.3.min.js" ></script>
+	 <script src="JS/underscore-min.js" ></script>
+ 	<script src="JS/backbone-min.js" ></script>
+	<script>
+
+		var Counter = Backbone.Model.extend({
+			defaults:{
+				count: 1,
+				id: 1
+			},
+
+			url: function(){
+				return 'http://127.0.0.1/counter/search_counter';
+			}
+		});
+
+		var counter = new Counter;
+		counter.save();
+	</script>
+</head>
+<body>
+
+</body>
+</html>

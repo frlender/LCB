@@ -1,0 +1,30 @@
+html{height:100%}
+body{margin:0 auto;font-family:'Droid Sans',sans-serif;height:100%;width:750px}
+a{color:#d90000;outline:0;text-decoration:none}
+textarea:focus,input:focus{outline-color:#d90000}
+div.beveled{padding:20px;border:1px solid #f0f0f0;border-bottom:2px solid #ccc;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px}
+div.clear{clear:both}
+strong{font-weight:bold}
+.left{text-align:left}
+.center{text-align:center}
+.right{text-align:right}
+.hidden{display:none}
+.red{color:#d90000!important}
+svg{overflow:hidden}
+div#header{position:relative}
+div#logo{margin:.1em 0 0 0;letter-spacing:.1em;font-size:3em}
+div#logo span{vertical-align:top;color:#000}
+div.account{position:absolute;top:0;right:0;font-size:.8em;font-weight:bold;padding-right:.5em}
+div#content{margin-top:1em}
+div.title{font-size:2.5em;border-bottom:2px solid #d90000;margin-bottom:.5em}
+table.warning{margin:0 auto}
+table.warning td#header{font-weight:bold;text-align:center;padding-bottom:1em}
+table.warning tr#browsers td{padding:20px;text-align:center}
+table.warning tr#browsers td div a{font-weight:bold;font-size:1em;padding:.1em;color:#000}
+table.warning tr#browsers td div a:hover{color:#fff;background-color:#000}
+#navbar{margin-bottom:1em}
+#navbar td{padding-right:1em}
+.nav td{white-space:nowrap}
+.nav td.selected a{color:#fff;background-color:#000!important}
+.nav td a{font-weight:bold;font-size:1em;padding:.1em;color:#000}
+.nav td a:hover{color:#fff;background-color:#d90000}

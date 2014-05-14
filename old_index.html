@@ -1,0 +1,333 @@
+<!doctype html>
+<html>
+	<head>
+  <title>LINCS Canvas Browser</title>
+
+ 
+  <script src="JS/jquery-2.0.3.min.js" ></script>
+ <script src="JS/jquery-ui-tooltip-customized.js"></script>
+ <script src="JS/d3.v3.min.js" charset="utf-8"></script>
+ <script src="JS/underscore-min.js" ></script>
+ <script src="JS/backbone-min.js" ></script>
+  <script type="text/javascript" src="JS/jquery.blockUI.js"></script>
+  
+
+	
+	<link rel="stylesheet" type="text/css" href="CSS/jquery-ui.css"/>
+	<!-- <link rel="stylesheet" type="text/css" href="CSS/foundation.min.css"/> -->
+	<link rel="stylesheet" type="text/css" href="CSS/fir.css"/>
+	<link rel="stylesheet" type="text/css" href="LINCS_Theme/add.css"/>
+			
+
+
+ </head>
+ 
+ <body> 
+
+ <header>
+<h1> Ma'ayan Lab <h1>
+<hr>		
+</header>
+ 
+ <h3 id='LCBTitle'> LINCS Canvas Browser </h3>
+ <div id='searchLCB'><a  href='search.html'  style='color:navy'> Search</a> | <a href='index.html' onclick="return false;" style='color:red'>Browse</a> | <a href='#' data-reveal-id="helpReveal" style='color:navy'>Help</a></div>
+<div class = 'beveled'>
+ 
+ <div id = 'twoGridAdjust'>
+ <div id='searchBoxDiv'>
+  	 <span>Search:</span><input id='searchBox' placeholder="Type to search experiments. Use * as wildcard match."/>
+  	</div>
+
+	<div id = 'gridDiv' class = 'block'>	
+		<div id = 'nav'  >
+			<table>
+	    <tr>
+		        <td>
+				  <a href="#" onclick="showCategory(0); return false;" style='text-decoration:overline;' >Average Change</a>
+				</td>
+				<td>
+				  -
+				</td>
+				<td>
+				 <a href="#" onclick="showCategory(1); return false;" >Time Point</a>
+				</td>
+				<td>
+				  -
+				</td>
+				<td>
+				<a href="#" onclick="showCategory(2); return false;" >Drugs</a>
+				</td>
+				<td>
+				  -
+				</td>
+				<td>
+				 <a href="#" onclick="showCategory(3); return false;" >Dose</a>
+				</td>
+				
+		 </tr>
+	</table>
+		</div>
+
+	<div class = 'block' id = 'correction'> <!--  id = 'correction' added by Chris ???-->
+       <div id = 'grid'></div>
+       <div id = 'below'></div>
+   </div>  
+
+ 
+	<div class = 'block' id="infoCorrection" ><div id = 'info_box'  ></div>
+		<div id = 'cellTypeOption'>
+		    <!--<span ><span > Cell</span> <span> Type:</span></span>-->
+			<select id = 'cellTypeSelect' onchange = 'showCellType(this.selectedIndex);'>
+			<option  selected = 'selected' >BT20</option>  
+			<option >HS578T</option>  
+			<option >MCF10A</option>  
+			<option >MCF7</option>  
+			<option  >MDAMB231</option>  
+			<option >SKBR3</option>  
+			</select>
+		</div>
+		<div id = 'batchOption' >
+		   <select id = 'batchSelect' onchange = 'showBatch(this.selectedIndex)'>
+		    <option id = 'ljp1' >LJP001</option>
+			<option id = 'ljp2' >LJP002</option>
+			<option selected = 'selected'>LJP004</option>
+			<option id = 'cpd1' >CPD001</option>
+			<option id = 'cpd2' >CPD002</option>
+			<option id = 'cpd3' >CPD003</option>
+			<option id = 'cpc1' >CPC001</option>
+			<option id = 'cpc2' >CPC002</option>
+			<option id = 'cpc3' >CPC003</option>
+			<option id = 'cpc4' >CPC004</option>
+			<option id = 'cpc5' >CPC005</option>
+			<option id = 'cpc6' >CPC006</option>
+			<option id = 'cpc7' >CPC007</option>
+			<option id = 'cpc8' >CPC008</option>
+			<option id = 'cpc9' >CPC009</option>
+			<option id = 'cpc10' >CPC010</option>
+			<option id = 'cpc11' >CPC011</option>
+			<option id = 'cpc12' >CPC012</option>
+			<option id = 'cpc13' >CPC013</option>
+			<option id = 'cpc14' >CPC014</option>
+			<option id = 'cpc15' >CPC015</option>
+			<option id = 'cpc16' >CPC016</option>
+			<option id = 'cpc17' >CPC017</option>
+			<option id = 'cpc18' >CPC018</option>
+			<option id = 'cpc19' >CPC019</option>
+			<option id = 'cpc20' >CPC020</option>
+			
+		   </select>
+		</div>
+	</div>
+ </div>
+ 
+
+
+
+ 
+
+
+<div id = 'enrichrBox' style="width:375px;" >
+	
+	<form style="">
+	<select id="selectCanvas" onChange="getJSON(this.form.selectCanvas.selectedIndex, G_VAR.canvasRGB, G_VAR.indicatorColor);">
+							<option value="x">------Transcription------</option>
+							<option value="x"></option>
+							<option value="3">Chip-X Enrichment Analysis (ChEA)</option>
+							<option value="24">JASPAR + Transfac PWM</option>
+							<option value="17">UCSC GenomeBrowser PWM</option>
+							<option value="37">Histone Modifications ChIP-seq</option>
+							<option value="10">Target Scan - MicroRNAs</option>
+							<option value="38">ENCODE Transcription Factors - ChIP-seq</option>
+							<!--<option value="16">ENCODE Transcription Factors - ChIP-seq</option>-->
+							<option value="x"></option>
+							<option value="x"></option>
+							<option value="x">------Pathways------</option>
+							<option value="x"></option>
+							<option value="8">KEGG Pathways</option>
+							<option value="14">WikiPathways</option>
+							<option value="13">Reactome Pathways</option>
+							<option value="4">Biocarta Pathways</option>
+							<option value="23">PPI Hub Proteins</option>
+							<option value="1">Kinase Enrichment Analysis (KEA)</option>
+							<option value="27">Human Endogenous Complex</option>
+							<option value="34">CORUM</option>
+							<option value="x"></option>
+							<option value="x"></option>
+							<option value="x">------Ontologies------</option>
+							<option value="x"></option>
+							<option value="5">Gene Ontology Biological Processes</option>
+							<option value="6">Gene Ontology Cellular Components</option>
+							<option value="7">Gene Ontology Molecular Function</option>
+							<option value="9">MGI - Mammalian Phenotype - Top 4</option>
+							<option value="x"></option>
+							<option value="x"></option>
+							<option value="x">------Disease/Drugs------</option>
+							<option value="x"></option>
+							<option value="32">Up-Regulated CMAP Top 100</option>
+							<option value="33">Down-Regulated CMAP Top 100</option>
+							<option value="31">GeneSigDB</option>
+							<option value="11">OMIM Diseases</option>
+							<option value="22">OMIM Expanded</option>
+							<option value="25">VirusMINT - Virus-Host Interactions</option>
+							<option value="x"></option>
+							<option value="x"></option>
+							<option value="x">------Cell Types------</option>
+							<option value="x"></option>
+							<option value="26">Human Gene Atlas</option>
+							<option value="28">Mouse Gene Atlas</option>
+							<option value="29">Cancer Cell Line Encyclopedia</option>
+							<option value="30">NCI-60 Cancer Cell Line</option>
+							
+							<option value="x"></option>
+							<option value="x"></option>
+							<option value="x">------Misc------</option>
+							<option value="x"></option>
+							<option value="35">HMDB Metabolites</option>
+							<option value="12">PFAM Interpro - Protein Domains</option>
+							<option value="x"></option>
+							<option value="x"></option>
+																																																																										
+							</select>
+						</form>
+	<div id="svgContainer"></div>
+	<div id="chartContainer"></div>
+	<div id="pvalueContainer"></div>
+	<div id="selectionDisplay4"></div>
+	<form id="choiceView" style="padding-top:10px;">
+						<input type ="radio" id="mainCanvasSelector" name="a" checked="checked" onClick="selectAlternateView()">Grid View</input>
+						<input type ="radio" id="networkView" name = "a" disabled="true" onClick="selectAlternateView()">Network View</input>
+						<input type ="radio" id="pvalueCanvas" name = "a" disabled="true" onClick="selectAlternateView()">P-Value View</input>
+						<input type ="radio" id="showTable" name="a" disabled="true" onClick="selectAlternateView()">Results Table</input>
+					</form>
+	<hr />
+	
+	<div id='UpDown' style="text-align:center;">
+		<form id="Regulation" style="padding-top:10px;">
+						<input type ="radio" id="UP_GENES" name="b" checked="checked" onClick="REGLOCK = 'UP'; if (uG){geneFill(G_VAR.nodes, uG, G_VAR.indicatorColor, G_VAR.infoDict, G_VAR.infos);}"><span class='toggleToolTip' id='upGenes' title=''>Up-Regulated Genes</span></input>
+						<input type ="radio" id="DOWN_GENES" name = "b"  onClick="REGLOCK = 'DOWN'; if (dG){geneFill(G_VAR.nodes, dG, G_VAR.indicatorColor, G_VAR.infoDict, G_VAR.infos);}"><span class='toggleToolTip' id='dnGenes' title=''>Down-Regulated Genes</span></input>
+		</form>
+	</div>
+
+   </div>
+</div><!--container div end-->
+
+</div> <!--beveled div end-->
+
+<footer id="pageFooter">
+
+    <div class="copyright">
+
+		Copyright &copy; <span id='currentYear'></span>, Ma'ayan Lab. All rights reserved.
+
+	</div>
+
+
+
+
+
+
+
+	<div class="logos">
+
+		<ul>
+
+			<li><a href="http://lincsproject.org" target="_blank" class="lincs ir"></a></li>
+
+			<li><a href="http://www.broadinstitute.org/" target="_blank" class="broad ir"></a></li>
+
+		</ul>	
+
+    </div>
+
+	<!-- 31 queries. 0.399 seconds. -->
+
+  </footer>
+  <div id="helpReveal" class="reveal-modal" data-reveal>
+  <div style='text-align:center;vertical-align:top'>
+ 
+  	<div>
+  		<div id='video_link' style='padding-left:2em;display:inline-block;' >
+  		<h2>Video Tutorial</h2>
+  			<div  style="display:block">
+  				<iframe  width="582" height="360" src="//www.youtube.com/embed/Sg2nw0gDWx8" frameborder="0" allowfullscreen></iframe>
+  			</div>
+  		</div>
+  		<div  id='pdf_tutorial_link' style='display:inline-block; padding-right:2em;vertical-align:top'>
+  		<h2>User Manual</h2>
+  			<a href="LCB-tutorial.pdf" target='_blank'><img  src='CSS/images/pdf-logo2.jpg'/></a>
+  		</div>
+  	</div>
+
+  </div>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+ </body>
+ 
+  
+
+   <script type="text/javascript" src="JS/html5slider.js"></script>
+   <script type="text/javascript" src="general/curveBelow.js"></script>
+  <script type="text/javascript" src="general/masterControl.js"></script>
+    <script type="text/javascript" src="general/searchBox.js"></script>
+        
+
+
+  
+
+
+<script type="text/javascript" src="general/visualizer17.js"></script>
+<script type="text/javascript" src="KEGG/MGI_MP_top4.js"></script>
+<script type="text/javascript" src="KEGG/mgi_mp_top4_dict.js"></script>
+
+<!-- for foundation reveal effect for help page -->
+<script src="JS/foundation.min.js" ></script>
+ <script src="JS/foundation.reveal.js" ></script>
+
+<script type="text/javascript" src="LINCS_Theme/searchForm.js"></script>
+<script type="text/javascript">
+//  for year at footer
+d3.select('#currentYear').text(new Date().getFullYear());
+
+	//default gene-set library index
+	document.getElementById("selectCanvas").selectedIndex = 27;
+	
+	
+	// Here the KEGG and KEGGGMT variables actually hold the JSON and GMT content
+	// of MP_MGI_TOP4, the default gene-set libary. Such arrangement is just for 
+	//convenience. A better solution is to name "KEGG" as "defaultLibrary" 
+	G_VAR = initializeIt(KEGG);
+	G_VAR.scale = Math.log(0.25)/Math.log(G_VAR.avgWeight);
+	
+	for (var nI = 0; nI < G_VAR.nodes.length; nI++){
+		G_VAR.nodes[nI].colorizer(G_VAR.scale, G_VAR.canvasRGB);
+		//console.log(nI)
+	}
+	
+	visualizeIt(G_VAR);
+	document.getElementById("svgContainer").style.display="block";
+	document.getElementById("mainSVG").style.display="inline";
+	G_VAR.infos = KEGGGMT;
+	uG = false;
+	dG = false;
+	
+	
+	
+	storeFact = [0,0];
+	REGLOCK = 'UP'
+
+	function showSigTerms(){
+
+		if (REGLOCK == "DOWN"){
+			geneFill(G_VAR.nodes, dG, G_VAR.indicatorColor, G_VAR.infoDict, G_VAR.infos);
+		} 
+		else {
+			geneFill(G_VAR.nodes, uG, G_VAR.indicatorColor, G_VAR.infoDict, G_VAR.infos);
+		}
+	}
+
+	 $(document).foundation();
+	
+</script>
+<script type="text/javascript" src="general/tooltip.js"></script>
+
+</html>

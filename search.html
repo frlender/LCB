@@ -1,0 +1,185 @@
+<html>
+
+<head >
+	
+	
+	
+	<title>
+		   LINCS Canvas Browser	</title>
+
+
+		<script type="text/javascript" src="JS/d3.v3.min.js"></script>
+	<script type="text/javascript" src="JS/jquery-2.0.3.min.js"></script>
+	<script src="JS/underscore-min.js" ></script>
+ 	<script src="JS/backbone-min.js" ></script>
+	<script type="text/javascript" src="JS/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="JS/jquery.blockUI.js"></script>
+	<script type="text/javascript" src="JS/sliderui/jquery-ui-1.10.3.custom.min.js"></script>
+	<script type="text/javascript" src="general/searchTar.js"></script>
+	
+	
+	<link rel="stylesheet" href="CSS/LINCS_NIH.css" type="text/css">
+
+
+	<style type="text/css" title="currentStyle">
+            @import "CSS/jquery.dataTables.css";
+            @import "CSS/search.css";
+            @import "CSS/fir.css";
+            
+            @import "LINCS_Theme/add.css";
+            @import "JS/sliderui/jquery-ui-1.10.3.custom.min.css";
+            #customWrap{
+            	padding-bottom: 22px;
+            }
+    </style>
+	
+</head>
+
+<body class="home page page-id-6 page-template page-template-page-home-php" style="">
+	<div id="header-wrap">
+		<div id="header">
+			<h1><a href="http://www.lincsproject.org/">NIH LINCS Program</a></h1>
+			<span class="tagline"></span>
+		
+			<div id="logo-nihlincs"><a href="http://www.lincsproject.org/">
+			  <span>Library of Integrated Network-Based Cellular Signatures</span>
+			</a></div>
+	
+		</div>
+	</div><!-- end header-wrap -->
+
+	<div id="pagebody-wrap">
+	
+		<div id="pagebody">
+		<div id='customWrap' >
+		<div id='counter'><b id='searchCounter'></b> searches performed!</div>
+<h3 id='LCBTitle'> LINCS Canvas Browser </h3>
+ <div id='searchLCB'><a  href='search.html'  style='color:red;' onclick="return false;"> Search</a> | <a style='' href='index.html' >Browse</a> | <a href='#' data-reveal-id="helpReveal" >Help</a></div> 
+ <hr>
+
+<div class = 'beveled' style='font-size:0.8em'>
+<div name='container' style='padding-top:1.5em'>
+
+<div id='upArea' style='display:inline-block'>
+	  <div id="header1" class="headerx">Gene Lists</div>
+
+	   <div id='upInputArea' class='areas inputArea'>
+		    <div class='listTitle'>Up List</div>
+		    <textarea id='upList' onkeyup='textEmpty("up");' onchange='textEmpty("up");'></textarea>
+		    <div style='font-size:0px'>
+		    	
+	            <input type='button' class="myButton" value='clear' onclick='clearText("up");'></input>
+	       </div>
+	       
+	  </div>
+
+      <div id='dnInputArea' class='areas inputArea'>
+		    <div class='listTitle'>Down List</div>
+			<textarea id='dnList' onkeyup='textEmpty("dn");' onchange='textEmpty("dn");'></textarea>
+			<div style='font-size:0px'>
+	
+			<input type='button' value='clear'  class="myButton" onclick='clearText("dn");'></input></div>
+				
+	  </div>
+
+	  <div id='totalInputArea'  style='display:block;padding-top:0.9em'>
+	  	<input type='checkbox' id='upCheck'  disabled='true' onchange='checkit("up");'>Up</input><input type='checkbox' id='dnCheck' disabled='true'  onchange='checkit("dn")'>Down</input>
+	  	<div style='font-size:0em'>
+	  	<input type='button' value='Search' class="myInactiveButton" ></search>
+	  	<input type='button' value='Example' class='myButton' onclick='example();'></input>
+	  	<input type='button' value='Enrichr' class="myInactiveButton" ></input>
+	  </div>
+	  	<div style='display:inline-block'>Aggravate</div><div style='display:inline-block;padding-left:0.8em;padding-right:0.8em;padding-top:0.7em;vertical-align:bottom'>
+	  		<div id='LJPslider' ></div>
+	  	</div><div style='display:inline-block'>Reverse</div>
+				
+	</div>
+</div>
+
+	  
+<div id='upResultArea' style='display:inline-block;vertical-align:top;' class='tableArea'>
+		<div  ><span id="header2" class="headerx"> Top 50 Concensus Experiments </span><span id="header_suffix"></span></div>
+			<table id='upTable'></table>
+	  </div>
+  
+ </div>
+ 
+</div>
+
+
+		</div> <!-- customWrap -->
+		</div><!-- end pagebody -->
+		
+	</div><!-- end pagebody-wrap -->
+
+<div id="footer-wrap">
+		<div id="footer">
+			Copyright <span id='currentYear'>2014</span>. The LINCS Canvas Browser is being developed in collaboration between the <a href="http://icahn.mssm.edu/research/labs/maayan-laboratory">Ma'ayan Lab</a> at the <a href="http://icahn.mssm.edu/">Icahn School of Medicine at Mount Sinai</a> and the <a href="http://lincscloud.org/about/cmap-team/">Golub/Subramanian Group</a> at the <a href="http://www.broadinstitute.org/">Broad Institute</a> and the <a href="https://sorger.med.harvard.edu/">Sorger Lab</a> at <a href="http://hms.harvard.edu/">Harvard Medical School</a> as a part of the <a href="http://commonfund.nih.gov/lincs/" target="_blank">LINCS NIH Common Fund</a>.
+    </div>
+	</div><!-- end footer-wrap -->
+	
+<div id="helpReveal" class="reveal-modal" data-reveal>
+  <div style='text-align:center;vertical-align:top'>
+ 
+  	<div>
+  		<div id='video_link' style='padding-left:2em;display:inline-block;' >
+  		<h2>Video Tutorial</h2>
+  			<div  style="display:block">
+  				<iframe  width="582" height="360" src="//www.youtube.com/embed/Sg2nw0gDWx8" frameborder="0" allowfullscreen></iframe>
+  			</div>
+  		</div>
+  		<div  id='pdf_tutorial_link' style='display:inline-block; padding-right:2em;vertical-align:top'>
+  		<h2>User Manual</h2>
+  			<a href="LCB-tutorial.pdf" target='_blank'><img  src='CSS/images/pdf-logo2.jpg'/></a>
+  		</div>
+  	</div>
+
+  </div>
+  <a class="close-reveal-modal">&#215;</a>
+</div><!-- end of reveal div  -->
+</body>
+<!-- for foundation reveal effect for help page -->
+<script src="JS/foundation.min.js" ></script>
+ <script src="JS/foundation.reveal.js" ></script>
+<script type="text/javascript" src="LINCS_Theme/searchForm.js"></script>
+<script>
+//  for year at footer
+d3.select('#currentYear').text(new Date().getFullYear());
+
+$( "#LJPslider" ).slider({
+		       
+			         
+			            min: 0,
+			            max:1,
+						step: 1,
+			            value: 0,
+						slide: function( event, ui ) {
+						
+						//showBatch(ui.value);
+						g_reverse = ui.value;
+				   
+			}
+			   
+
+			  
+			   
+		});
+
+$(document).foundation();
+
+</script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-6277639-18', 'maayanlab.net');
+  ga('send', 'pageview');
+
+</script>
+
+
+</html>

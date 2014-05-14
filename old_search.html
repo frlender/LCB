@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+	<head>
+	<title>LINCS Canvas Browser</title>
+	<script type="text/javascript" src="JS/d3.v3.min.js"></script>
+	<script type="text/javascript" src="JS/jquery-2.0.3.min.js"></script>
+	<script src="JS/underscore-min.js" ></script>
+ 	<script src="JS/backbone-min.js" ></script>
+	<script type="text/javascript" src="JS/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="JS/jquery.blockUI.js"></script>
+	<script type="text/javascript" src="JS/sliderui/jquery-ui-1.10.3.custom.min.js"></script>
+	<script type="text/javascript" src="general/searchTar.js"></script>
+
+
+	<style type="text/css" title="currentStyle">
+            @import "CSS/jquery.dataTables.css";
+            @import "CSS/search.css";
+            @import "CSS/fir.css";
+            @import "LINCS_Theme/add.css";
+            @import "JS/sliderui/jquery-ui-1.10.3.custom.min.css";
+    </style>
+	
+	</head>
+
+	<body>
+<header role="banner" id="pageHeader">
+		<h1><a href="http://www.lincscloud.org/" class="ir cmap"></a></h1>
+		
+		<div id="loginOptions">
+			<a href="http://www.lincscloud.org/login/">Sign in </a><span class="divider">|</span><a href="http://www.lincscloud.org/register/">Create an Account </a>			
+		</div>
+		
+		<form role="search" method="get" id="searchform" action="http://www.lincscloud.org" >
+			<div><input type="text" value="" name="s" id="s" />
+			<input type="image" id="searchsubmit" src="LINCS_Theme/icon_search.gif" value="Search" title="Search" />
+			</div>
+		</form>
+		
+		<div class="betaLink"><a href="http://www.lincscloud.org/about-the-lincs-beta/">beta for LINCS</a>
+    </header>
+ 
+<h3 id='LCBTitle'> LINCS Canvas Browser </h3>
+ <div id='searchLCB'><a  href='search.html'  style='color:red;' onclick="return false;"> Search</a> | <a style='' href='index.html' >Browse</a> | <a href='#' data-reveal-id="helpReveal" style='color:navy'>Help</a></div> 
+ <hr>
+
+<div class = 'beveled' style='font-size:0.8em'>
+<div name='container' style='padding-top:1.5em'>
+
+<div id='upArea' style='display:inline-block'>
+	  <div id="header1" class="headerx">Gene Lists</div>
+
+	   <div id='upInputArea' class='areas inputArea'>
+		    <div class='listTitle'>Up List</div>
+		    <textarea id='upList' onkeyup='textEmpty("up");' onchange='textEmpty("up");'></textarea>
+		    <div style='font-size:0px'>
+		    	
+	            <input type='button' class="myButton" value='clear' onclick='clearText("up");'></input>
+	       </div>
+	       
+	  </div>
+
+      <div id='dnInputArea' class='areas inputArea'>
+		    <div class='listTitle'>Down List</div>
+			<textarea id='dnList' onkeyup='textEmpty("dn");' onchange='textEmpty("dn");'></textarea>
+			<div style='font-size:0px'>
+	
+			<input type='button' value='clear'  class="myButton" onclick='clearText("dn");'></input></div>
+				
+	  </div>
+
+	  <div id='totalInputArea'  style='display:block;padding-top:0.9em'>
+	  	<input type='checkbox' id='upCheck'  disabled='true' onchange='checkit("up");'>Up</input><input type='checkbox' id='dnCheck' disabled='true'  onchange='checkit("dn")'>Down</input>
+	  	<div style='font-size:0em'>
+	  	<input type='button' value='Search' class="myInactiveButton" ></search>
+	  	<input type='button' value='Example' class='myButton' onclick='example();'></input>
+	  	<input type='button' value='Enrichr' class="myInactiveButton" ></input>
+	  </div>
+	  	<div style='display:inline-block'>Aggravate</div><div style='display:inline-block;padding-left:0.8em;padding-right:0.8em;padding-top:0.7em;vertical-align:bottom'>
+	  		<div id='LJPslider' ></div>
+	  	</div><div style='display:inline-block'>Reverse</div>
+				
+	</div>
+</div>
+
+	  
+<div id='upResultArea' style='display:inline-block;vertical-align:top;' class='tableArea'>
+		<div  ><span id="header2" class="headerx"> Top 50 Concensus Experiments </span><span id="header_suffix"></span></div>
+			<table id='upTable'></table>
+	  </div>
+  
+ </div>
+ <div style='text-align:right;margin-right:5em;'><b id='searchCounter'>Null</b> searches performed by all users!</div>
+</div>
+
+ <footer id="pageFooter">
+
+    <div class="copyright">
+
+		Copyright &copy; 2012, CMap Team at Broad Institute. All rights reserved. <br> <a href="/terms-and-conditions/">Terms and Conditions</a>
+
+	</div>
+
+
+
+
+
+
+
+	<div class="logos">
+
+		<ul>
+
+			<li><a href="http://lincsproject.org" target="_blank" class="lincs ir"></a></li>
+
+			<li><a href="http://www.broadinstitute.org/" target="_blank" class="broad ir"></a></li>
+
+		</ul>	
+
+    </div>
+
+	<!-- 31 queries. 0.399 seconds. -->
+
+  </footer>
+  <div id="helpReveal" class="reveal-modal" data-reveal>
+  <div style='text-align:center;vertical-align:top'>
+ 
+  	<div>
+  		<div id='video_link' style='padding-left:2em;display:inline-block;' >
+  		<h2>Video Tutorial</h2>
+  			<div  style="display:block">
+  				<iframe  width="582" height="360" src="//www.youtube.com/embed/Sg2nw0gDWx8" frameborder="0" allowfullscreen></iframe>
+  			</div>
+  		</div>
+  		<div  id='pdf_tutorial_link' style='display:inline-block; padding-right:2em;vertical-align:top'>
+  		<h2>User Manual</h2>
+  			<a href="LCB-tutorial.pdf" target='_blank'><img  src='CSS/images/pdf-logo2.jpg'/></a>
+  		</div>
+  	</div>
+
+  </div>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+</body>
+<!-- for foundation reveal effect for help page -->
+<script src="JS/foundation.min.js" ></script>
+ <script src="JS/foundation.reveal.js" ></script>
+<script type="text/javascript" src="LINCS_Theme/searchForm.js"></script>
+<script>
+$( "#LJPslider" ).slider({
+		       
+			         
+			            min: 0,
+			            max:1,
+						step: 1,
+			            value: 0,
+						slide: function( event, ui ) {
+						
+						//showBatch(ui.value);
+						g_reverse = ui.value;
+				   
+			}
+			   
+
+			  
+			   
+		});
+
+$(document).foundation();
+
+</script>
+</html>

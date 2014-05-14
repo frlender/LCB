@@ -1,0 +1,1757 @@
+/*   
+
+Theme Name: LINCS
+
+Theme URI: http://www.fagandesign.com
+
+Description: Custom theme for NIH LINCS website
+
+Author: Rebecca Fagan Gorospe
+
+Author URI: http://www.fagandesign.com
+
+Version: 1.0
+
+Theme adapted from LINCS theme by Joe Grassia at http://www.atomicmouse.com.
+
+*/
+
+
+
+
+
+/*@import "css/reset.css";*/
+
+
+
+
+
+/* -----------------------------------------------------------*/
+
+/* --- Typography
+
+/* -----------------------------------------------------------*/
+
+body {
+
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+
+	font-size:11px;
+
+	color:#121212;
+
+	/*line-height:18px;*/
+
+}
+
+/*h1, h2 { font-weight: normal; }
+
+h1 {
+
+	font-size:22px;
+
+	color:#5B87B6;
+
+	line-height:1.1em;
+
+	font-weight: normal;
+
+}
+*/
+
+
+#content h1 {
+
+	font-size:24px;
+
+	color:#4F769F;
+
+	font-weight: normal;
+
+	margin-bottom: 20px;
+
+	margin-top: -10px;
+
+	margin-left: -20px;
+
+	border-bottom-width: 0px;
+
+	border-bottom-style: solid;
+
+	border-bottom-color: #9CF;
+
+	padding-bottom: 6px;
+
+}
+
+
+
+
+
+h2 {
+
+	font-size:18px;
+
+	line-height:1.1em;
+
+	color: black;
+
+
+
+}
+
+
+
+#content h2 {
+
+	font-size:16px;
+
+	line-height:18px;
+
+	color: black;
+
+	border-bottom-width: 1px;
+
+	border-bottom-style: solid;
+
+	border-bottom-color: #CC9;
+
+	font-weight: normal;
+
+	padding-bottom: 4px;
+
+	margin-bottom: 10px;
+
+	margin-right: -8px;
+
+	margin-left: -8px;
+
+	padding-right: 8px;
+
+	padding-left: 8px;
+
+	text-transform: capitalize;
+
+}
+#content h2 a {
+	
+	text-decoration: none;
+	}
+#content h2 a:hover {
+	text-decoration: none;
+	color: #990;
+	}
+#content h2 a:active {
+	text-decoration: none;
+	color: #5670a5;
+	}
+
+#content h3 {
+
+	font-size:11px;
+
+	line-height:14px;
+
+	color: #405F81;
+
+	font-weight: bold;
+
+	padding-bottom: 3px;
+
+	margin-bottom: 10px;
+
+	text-transform: uppercase;
+
+	border: 1px solid #CC9;
+
+	margin-right: -8px;
+
+	margin-left: -8px;
+
+	padding-right: 8px;
+
+	padding-left: 8px;
+
+	padding-top: 2px;
+
+	background-color: #F3F4E8;
+
+	margin-top: 20px;
+
+}
+
+
+
+#content h4 {
+
+	font-size:12px;
+
+	line-height:14px;
+
+	color: #405F81;
+
+	font-weight: bold;
+
+	margin-bottom: 6px;
+
+	margin-top: 20px;
+
+}
+
+
+
+#content h5 {
+
+	font-size:11px;
+
+	line-height:13px;
+
+	color: #405F81;
+
+	font-weight: bold;
+
+	padding-bottom: 3px;
+
+	margin-bottom: 10px;
+
+	border-bottom-width: 1px;
+
+	border-bottom-style: solid;
+
+	border-bottom-color: #CC9;
+
+	margin-right: -8px;
+
+	margin-left: -8px;
+
+	padding-right: 8px;
+
+	padding-left: 8px;
+
+	margin-top: 20px;
+
+}
+
+#content h6 {
+
+	font-size:11px;
+
+	line-height:13px;
+
+	color: #000;
+
+	font-weight: bold;	
+
+	margin-bottom: 5px;
+
+	margin-top: 20px;
+
+}
+
+
+
+a {
+
+	color: navy;
+
+	
+
+}
+
+a:hover {
+
+	color: #990;
+
+	/*text-decoration: none;*/
+
+}
+
+a:active {
+
+	color: #5670a5;
+
+	text-decoration: underline;
+
+}
+
+
+
+blockquote { }
+
+blockquote p { }
+
+pre { }
+
+code, tt { }
+
+
+
+.post { }
+
+
+
+.entry {
+
+	margin-bottom: 20px;
+
+}
+
+.entry a { }
+
+.entry a:hover { }
+
+
+
+.postmetadata { }
+
+
+
+.searchResults {
+
+	font-size:16px;
+
+	font-weight:bold;
+
+	color:#777;
+
+	margin-bottom:1em;
+
+}
+
+
+
+/* -----------------------------------------------------------*/
+
+/* --- Layout
+
+/* -----------------------------------------------------------*/
+
+/*p { margin-bottom:10px; }
+
+h1 { margin-bottom:.7em; }
+
+h2 { margin-bottom:.3em; }
+
+h3 { margin-bottom:.3em; }
+
+
+
+ul, ol, { margin: 0 0 10px 0; }
+
+
+
+form { }
+
+#header #searchform #s { }
+
+textarea { }*/
+
+/*
+
+.clear-both {
+
+	clear:both;
+
+}*/
+
+
+
+
+
+/* --- Header ---- */
+
+
+
+#header-wrap {
+
+	background:url(images/bkg_header.jpg) repeat-x left top;
+
+}
+
+#header {
+
+	width:939px;
+
+	height:133px;
+
+	margin: 0 auto;
+
+	position:relative;
+
+	z-index: 15;
+
+	background: url(images/bkg_header_top.jpg) repeat-x left top;	
+
+}
+
+#header h1 {
+
+	margin-bottom:0;	
+
+}
+
+#header h1 a {
+
+	display:block;
+
+	position:absolute;
+
+	text-indent:-9999px;
+
+	width:402px;
+
+	height:107px;
+
+	left:0px;
+
+	top:0px;
+
+	background:url(images/NIH_LINCS_logo.jpg) no-repeat left ;
+
+}
+
+#header .tagline {
+
+	display:block;
+
+	position:absolute;
+
+	width:188px;
+
+	left:200px;
+
+	top:58px;
+
+	color:#171717;
+
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+
+	font-size:12px;
+
+	line-height:1.2em;
+
+}
+
+
+
+#logo-hms a {
+
+	position:absolute;
+
+	width:91px;
+
+	height:45px;
+
+	left:826px;
+
+	top:47px;
+
+	background:url(images/logo_hms.gif) left top no-repeat;
+
+}
+
+
+
+#logo-nihlincs a {
+
+	position:absolute;
+
+	width:509px;
+
+	height:30px;
+
+	background:url(images/LINCS_tagline.jpg) no-repeat left top;
+
+	left: 430px;
+
+	top: 77px;
+
+}
+
+
+
+#logo-hms span, #logo-nihlincs span {
+
+	display: none;
+
+}
+
+
+
+/* ---- Search Form ----*/
+
+
+
+
+/* --- Menu ---- */
+
+
+
+#access {
+
+	width:939px;
+
+	height:24px;
+
+	border-bottom:1px solid #ffF;
+
+	border-top:1px solid #ffF;
+
+	position:absolute;
+
+	top:107px;
+
+	left:0;
+
+	background-color:#cccc99;
+
+}
+
+#access .menu-header,
+
+div.menu {
+
+	padding-left: 15px;
+
+}
+
+#access .menu-header ul,
+
+div.menu ul {
+
+	list-style: none;
+
+	margin: 0;
+
+
+
+}
+
+#access .menu-header li,
+
+div.menu li {
+
+	float: left;
+
+	position: relative;
+
+	margin:0 0px;
+
+}
+
+#access a {
+
+	color: #5670a5;
+
+	display: block;
+
+	line-height: 24px;
+
+	padding: 0 11px;
+
+	text-decoration: none;
+
+	font-size: 11px;
+
+	font-weight: bold;
+
+	text-transform: uppercase;
+
+}
+
+#access ul ul {
+
+	box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+
+	-moz-box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+
+	-webkit-box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+
+	display: none;
+
+	position: absolute;
+
+	top: 24px;
+
+	left: 0;
+
+	float: left;
+
+	width: 180px;
+
+	z-index: 99999;
+
+	padding-bottom:6px;
+
+	padding-right:2px;
+
+	background: #669ACC;
+
+	text-transform: none;
+
+}
+
+#access .menu-header ul ul li,
+
+#access ul ul li {
+
+	min-width: 180px;
+
+	margin:0;
+
+}
+
+#access ul ul ul {
+
+	left: 100%;
+
+	top: 0;
+
+}
+
+#access ul ul a {
+
+	background: #669ACC;
+
+	line-height: 14px;
+
+	padding: 3px 11px 4px;
+
+	width: 160px;
+
+	height: auto;
+
+	text-transform: uppercase;
+
+	font-weight: normal;
+
+	color: #FFF;
+
+}
+
+#access li:hover > a
+
+ {
+
+	background: #669ACC;
+
+	color: #fff;
+
+}
+
+
+
+#access ul ul :hover > a {
+
+	background: #bebe85;
+
+	color: #fff;
+
+}
+
+#access ul li:hover > ul {
+
+	display: block;
+
+}
+
+#access ul ul li:hover > ul {
+
+	/* don't allow tertiary vis */
+
+	display: none;
+
+}
+
+#access ul li.current_page_item > a,
+
+#access ul li.current_page_ancestor > a,
+
+#access ul li.current-menu-ancestor > a,
+
+#access ul li.current-menu-item > a,
+
+#access ul li.current-menu-parent > a {
+
+	color: #fff;
+
+}
+
+* html #access ul li.current_page_item a,
+
+* html #access ul li.current_page_ancestor a,
+
+* html #access ul li.current-menu-ancestor a,
+
+* html #access ul li.current-menu-item a,
+
+* html #access ul li.current-menu-parent a,
+
+* html #access ul li a:hover {
+
+	color: #fff;
+
+}
+
+
+
+
+
+/* --- Cimy header image rotator ---- */
+
+
+
+#cimy_div_id {
+
+	float: left;
+
+	margin: 0;
+
+	border: 0;
+
+	width: 939px;
+
+	height: 245px;
+
+	display:none;
+
+}
+
+div.cimy_div_id_caption {
+
+	position: absolute;
+
+	margin-top: 175px;
+
+	margin-left: -75px;
+
+	width: 150px;
+
+	text-align: center;
+
+	left: 50%;
+
+	padding: 5px 10px;
+
+	background: black;
+
+	color: white;
+
+	border-radius: 10px;
+
+	display: none;
+
+	z-index: 2;
+
+}
+
+
+
+
+
+
+
+/* --- Page body ---- */
+
+
+
+#pagebody-wrap {
+
+	background:#f1f1e2 url(images/bkg_body_secondary.gif) repeat-x left top;
+
+}
+
+	.home #pagebody-wrap {
+
+	background:#f1f1e2 url(images/bkg_body_home.gif) repeat-x left top;
+
+	}
+
+#pagebody {
+
+	width:939px;
+
+	margin: 0 auto;
+
+	padding:59px 0 10px 0;
+
+	background:#fff url(images/header_img.jpg) left top no-repeat;
+
+*/
+
+	border-left:#ffefe2 1px solid;
+
+}
+
+	#pagebody.header1 {
+
+		background:#fff url(images/header_img1.jpg) left top no-repeat;
+
+	}
+
+	#pagebody.header2 {
+
+		background:#fff url(images/header_img2.jpg) left top no-repeat;
+
+	}
+
+	.home #pagebody {
+
+		background-image:none;
+
+		padding-top:0;
+
+	}
+
+
+
+	
+
+#content {
+
+	float:left;
+
+	position:relative;
+
+	width:590px;
+
+	left:284px;
+
+	margin-top:25px;
+
+	padding-bottom: 50px;
+
+	margin-left: -66px;
+
+	padding-left: 66px;
+
+	border-left-width: 1px;
+
+	border-left-style: solid;
+
+	border-left-color: #aab7d2;
+
+	padding-top: 10px;
+
+	min-height: 350px;
+
+	margin-bottom: 10px;
+
+}
+
+
+
+.home #content {
+
+	width:443px;
+
+	margin-top:28px;
+
+	margin-right: 62px;
+
+	margin-left: 62px;
+
+	left: 0px;
+
+	padding-bottom: 50px;
+
+	font-size: 12px;
+
+	line-height: 20px;
+
+	margin-bottom: 0px;
+
+	padding-top: 0px;
+
+	padding-right: 0px;
+
+	padding-left: 0px;
+
+	border-top-width: 0px;
+
+	border-right-width: 0px;
+
+	border-bottom-width: 0px;
+
+	border-left-width: 0px;
+
+}
+
+
+
+.nosidebar#content {
+
+	float:left;
+
+	position:relative;
+
+	width:810px;
+
+	left:0px;
+
+	margin-top:28px;
+
+	padding-bottom: 50px;
+
+	margin-left: 66px;
+
+	padding-left: 0px;
+
+	border-left-width: 0px;
+
+	border-left-style: solid;
+
+	border-left-color: #aab7d2;
+
+	padding-top: 10px;
+
+	border-top-width: 0px;
+
+	border-right-width: 0px;
+
+	border-bottom-width: 0px;
+
+}
+
+
+
+
+
+/* bulleted and numbered lists */
+
+
+
+#content ul {
+
+	padding-top: 0px;
+
+	margin: 0px 0px 15px;
+
+	padding-right: 0px;
+
+	padding-left: 2px;
+
+}
+
+
+
+#content ul li {
+
+	background: url(images/bullet.gif) no-repeat 0px 0.6em;
+
+	list-style-type: none;
+
+	padding-top: 0px;
+
+	padding-bottom: 0px;
+
+	padding-right: 0px;
+
+	padding-left: 15px;
+
+	float: none;
+
+	margin: 0px;
+
+
+
+}
+
+
+
+#content ul li ul {
+
+
+
+	padding-top: 0px;
+
+
+
+	padding-bottom: 5px;
+
+
+
+	margin: 0px;
+
+
+
+	padding-right: 0px;
+
+
+
+	padding-left: 2px;
+
+
+
+}
+
+
+
+#content ul li ul li {
+
+
+
+	background: url(images/bullet-nav.gif) no-repeat 0em 0.6em;
+
+
+
+	list-style-type: none;
+
+
+
+	padding-top: 0px;
+
+
+
+	padding-bottom: 0px;
+
+
+
+	padding-right: 0px;
+
+
+
+	padding-left: 15px;
+
+
+
+	float: none;
+
+
+
+	margin: 0px;
+
+
+
+}
+
+#content ol {
+
+
+
+	padding-top: 0px;
+
+
+
+	padding-bottom: 4px;
+
+
+
+	margin: 0px;
+
+
+
+	padding-right: 0px;
+
+
+
+	padding-left: 20px;
+
+}
+
+
+
+#content ol li {
+
+
+
+	padding-top: 0px;
+
+
+
+	padding-bottom: 4px;
+
+
+
+	padding-right: 0px;
+
+
+
+	padding-left: 0px;
+
+
+
+	float: none;
+
+
+
+	margin: 0px;
+
+	
+
+	list-style-type: decimal !important;
+
+
+
+}
+
+
+
+#content ol li ul {
+
+
+
+	padding-top: 0px;
+
+
+
+	padding-bottom: 5px;
+
+
+
+	margin: 0px;
+
+
+
+	padding-right: 0px;
+
+
+
+	padding-left: 2px;
+
+
+
+}
+
+
+
+#content ol li ul li {
+
+
+
+	background: url(images/bullet.gif) no-repeat 0em 0.6em;
+
+
+
+	list-style-type: none !important;
+
+
+
+	padding-top: 0px;
+
+
+
+	padding-bottom: 0px;
+
+
+
+	padding-right: 0px;
+
+
+
+	padding-left: 15px;
+
+
+
+	float: none;
+
+
+
+	margin: 0px;
+
+
+
+}
+
+
+
+
+
+/* breadcrumbs */
+
+#breadcrumb {
+
+	color:#bbb;
+
+	margin-bottom:.5em;
+
+}
+
+#breadcrumb a {
+
+	color:#999;
+
+}
+
+
+
+/* captions */
+
+.wp-caption {
+
+	padding:5px 0;
+
+	background-color:#efeded;
+
+	-moz-border-radius: 5px;
+
+	border-radius: 5px;
+
+	margin-bottom:1em;
+
+}
+
+.wp-caption img {
+
+	margin:0 5px;
+
+}
+
+.wp-caption-text, .wp-caption-dd {
+
+	line-height:1.3em;
+
+	margin:.1em 10px .2em 10px;
+
+}
+
+
+
+#meta { }
+
+
+
+.postmetadata {
+
+	margin-bottom:2em;
+
+}
+
+
+
+
+
+/* sidebar */
+
+#sidebar {
+
+	width:180px;
+
+	margin-top:30px;
+
+	float: left;
+
+	margin-left: -565px;
+
+	border-right-width: 0px;
+
+	border-right-style: solid;
+
+	border-right-color: #aab7d2;
+
+	padding-right: 20px;
+
+}
+
+	.home #sidebar {
+
+	left:0px;
+
+	width:290px;
+
+	margin-top:17px;
+
+	padding-left: 24px;
+
+	padding-bottom: 30px;
+
+	border-left-width: 1px;
+
+	border-left-style: solid;
+
+	border-left-color: #aab7d2;
+
+	margin-left: 0px;
+
+	border-top-width: 0px;
+
+	border-right-width: 0px;
+
+	border-bottom-width: 0px;
+
+	}
+
+	.home #sidebar h2 {
+
+	color:#999933;
+
+	font-weight:bold;
+
+	font-size:11px;
+
+	background-color:#FFF;
+
+	padding:4px 10px 5px;
+
+	text-transform: uppercase;
+
+	margin-left: -8px;
+
+	border: 1px solid #cccc66;
+
+	margin-top: 10px;
+
+	margin-bottom: 10px;
+
+	margin-right: -8px;
+
+	}
+
+	.home #sidebar p {
+
+	line-height:18px;
+
+	font-size:11px;
+
+	}
+
+	#sidebar h2 {
+
+	color:#999933;
+
+	font-weight:bold;
+
+	font-size:11px;
+
+	background-color:#FFF;
+
+	padding:4px 10px 5px;
+
+	text-transform: uppercase;
+
+	margin-left: -8px;
+
+	border: 1px solid #cccc66;
+
+	margin-top: 10px;
+
+	margin-bottom: 10px;
+
+	margin-right: -8px;
+
+	}
+
+	#sidebar p {
+
+	line-height:18px;
+
+	font-size:11px;
+
+	}
+
+/* second level navs */
+
+/*left side navs*/
+
+#page-nav {
+
+	color: #FFF;
+
+	text-decoration: none;
+
+	z-index: 101;
+
+	margin: 0px 0px 30px;
+
+	padding: 0px;
+
+	background-image: url(images/LL-leftpanel1-extender2.gif);
+
+	background-repeat: no-repeat;
+
+	background-position: bottom;
+
+}
+
+
+
+
+
+#page-nav ul {
+
+	list-style: none;
+
+	margin: 0;
+
+	padding: 0;
+
+
+
+}
+
+#page-nav ul li {
+
+	display: inline;
+
+	margin: 0;
+
+	padding: 0;
+
+	float: none;
+
+
+
+}
+
+#page-nav ul li a {
+
+	margin: 0 0 0 0px;
+
+	display: block;
+
+	font-size: 11px;
+
+	line-height: 13px;
+
+	color:#6699cc;
+
+	padding: 1pt 5pt 2pt 12pt;
+
+	font-weight: normal;
+
+	text-decoration: none;
+
+	background: url(images/bullet.gif);
+
+	background-repeat: no-repeat;
+
+	background-position: 0px 0.5em;
+
+}
+
+#page-nav ul li a:hover {
+
+	color: #999933;
+
+	text-decoration: none;
+
+	background: url(images/bullet-nav.gif);
+
+	background-repeat: no-repeat;
+
+	background-position: 0px 0.5em;;
+
+}
+
+#page-nav ul li a:active {
+
+	color: #5670a5;
+
+	text-decoration: none;
+
+}
+
+#page-nav ul li.current_page_item a {
+
+	color: #999933;
+
+	background-image: url(images/icon_arrow2.gif);
+
+	background-repeat: no-repeat;
+
+	background-position: 0px .4em;
+
+}
+
+
+
+#page-nav ul li ul {
+
+	margin: 0px 0px 0px 15px;
+
+	border-bottom-width: 0px;
+
+	border-bottom-style: solid;
+
+	border-bottom-color: #09F;
+
+	padding: 0px;
+
+}
+
+#page-nav ul li ul li {
+
+	padding-top: 0px;
+
+	padding-bottom: 0px;
+
+	margin-bottom: 0px;
+
+	}
+
+#page-nav ul li ul li a {
+
+	font-weight: normal;
+
+}
+
+
+
+#page-nav .current_page_item .children a {
+
+	font-weight:normal;
+
+	background-image: url(images/bullet.gif);
+
+	background-repeat: no-repeat;
+
+	background-position: 0px 0.5em;
+
+	color:#6699cc;
+
+}
+
+#page-nav ul li ul li.current_page_item a {
+
+	color: #999933;
+
+	background-image: url(images/icon_arrow2.gif);
+
+	background-repeat: no-repeat;
+
+	background-position: 0px .4em;
+
+}
+
+
+
+
+
+
+
+/**/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* other */
+
+
+
+.navigation { }
+
+   .next-posts { }
+
+   .prev-posts { }
+
+   
+
+   .textwidget {
+	margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+img.commonfund {
+
+	margin-left: -8px;
+
+	margin-right: -8px;
+
+	border: 1px solid #cccc66;
+
+	
+
+}
+
+
+
+/* FORMS */
+
+
+
+input.test {
+
+
+
+	border: 1px solid #999;
+
+
+
+	color: #000000;
+
+
+
+	font-size: 90%;
+
+
+
+	padding: 3px;
+
+
+
+	background-color: #EBEBEB;
+
+
+
+}
+.logoInline { }
+
+	#s { }
+
+	#searchsubmt { }
+
+	
+
+
+
+
+
+/* --- Footer ---- */
+
+
+
+#footer-wrap {
+
+	background-color:#6b7891;
+
+	border-top-width: 1px;
+
+	border-top-style: solid;
+
+	border-top-color: #FFF;
+
+}
+
+#footer {
+
+	width:893px;
+
+	margin: 0 auto;
+
+	background-color:#2b3d62;
+
+	padding-top:17px;
+
+	color:#CCC;
+
+	font-size:10px;
+
+	padding-left: 23px;
+
+	padding-right: 23px;
+
+	padding-bottom: 50px;
+
+}
+
+#footer a {
+
+	color:#eaeaea;
+
+}
+#footer a:hover {
+	color:#CC6;
+}
+#footer a:active {
+	color:#9CF;
+}
+
+
+
+
+/* --- Table of contents --- */
+
+
+
+/* need #content to be more specific than ""#content ol" above */
+
+#content .toc ol ol {
+
+	margin-bottom: 0; /* keep nested lists tight against any following list */
+
+}
+
+
+
+
+
+/* --- WordPress classes --- */
+
+
+
+/* Alignment */
+
+.alignleft {
+
+        display: inline;
+
+        float: left;
+
+        margin-right: 1.625em;
+
+}
+
+.alignright {
+
+        display: inline;
+
+        float: right;
+
+        margin-left: 1.625em;
+
+}
+
+.aligncenter {
+
+        clear: both;
+
+        display: block;
+
+        margin-left: auto;
+
+        margin-right: auto;
+
+}
+
+
+
+/* Images */
+
+.entry-content img,
+
+.comment-content img,
+
+.widget img {
+
+        max-width: 97.5%; /* Fluid images for posts, comments, and widgets */
+
+}
+
+img[class*="align"],
+
+img[class*="wp-image-"] {
+
+        height: auto; /* Make sure images with WordPress-added height and width attributes are scaled correctly */
+
+}
+
+img.size-full {
+
+        max-width: 97.5%;
+
+        width: auto; /* Prevent stretching of full-size images with height and width attributes in IE8 */
+
+}
+.logoInline {
+	float: right;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}

@@ -1,0 +1,34 @@
+div.content{margin-top:1em;position:relative}
+div.downloadbox{float:right}
+div.downloadbox a{color:#aaa;font-size:.6em;margin-left:.6em;-webkit-transition:all .3s ease;-moz-transition:all .3s ease;-o-transition:all .3s ease;transition:all .3s ease}
+div.downloadbox a:hover{color:#000}
+div#session-warning{margin-bottom:1em}
+div#session-warning img{vertical-align:text-bottom}
+div#session-warning span{color:#000;margin-left:.2em}
+a.title{font-size:1.5em;color:#d90000;font-weight:bold;text-decoration:none}
+#navbar td.shown a{color:#fff;background-color:#000!important}
+table.nav{font-size:1em;margin:.3em 0 0 0;float:right;display:none}
+table.nav td{padding-left:1em}
+div.table div.method{margin-bottom:.5em}
+div.export{margin-top:1em;font-size:14px;float:left}
+div.export a:hover{text-decoration:underline}
+div.gene-overlap{max-width:400px;font-size:.7em;text-align:justify}
+#description{margin-bottom:1em;font-weight:bold}
+#description td#red{padding:.1em .2em;border:1px solid #d90000;background-color:#d90000;color:#fff;vertical-align:middle}
+#description td#black{padding:.1em .2em;border-width:1px;border-style:solid none;width:100%}
+div.bar-graph div.method{float:left}
+div.bar-graph div.method span{font-weight:bold}
+div.method-desc{max-width:400px;font-size:.7em;text-align:justify}
+div.grid div.svg-container{text-align:center}
+div.grid td.scores{padding-left:2em;font-weight:bold}
+div.grid td.scores span{color:#ddd}
+div.grid-network div.svg-container{text-align:center}
+#share,#save{background:#000;border:1px solid #000}
+#share:hover,#save:hover{background:#d90000;border:1px solid #d90000}
+#share img,#save img{vertical-align:middle}
+#blanket{background-color:#111;filter:alpha(opacity=65);position:fixed;z-index:9001;top:0;left:0;width:100%;height:100%;display:none}
+div.popup{background-color:#fff;position:fixed;top:50%;left:50%;z-index:9002;display:none}
+div.popup div#advice{font-size:.8em}
+div.popup input{width:30em;outline:0;border:1px solid #ccc;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;padding:.4em}
+div.settings{position:absolute;bottom:0;right:0}
+td.settings a:hover{background:0}

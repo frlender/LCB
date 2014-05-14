@@ -1,0 +1,282 @@
+
+body {
+	margin: 0px auto;
+	font-family: 'Droid Sans', sans-serif;
+	height: 100%;
+	/*width: 850px;*/
+	/*padding-top:80px;*/
+	font-size :1em;
+}
+
+.axis path,
+			.axis line {
+				fill: none;
+				stroke: black;
+				shape-rendering: auto;
+			}
+			
+			.axis text {
+				font-family: sans-serif;
+				font-size: 11px;
+			}
+			
+			div.beveled {
+		
+			padding: 0px;
+			text-align: center;
+			font-size: 0em;
+			border: 0px solid #f0f0f0;
+			border-bottom: 0px solid #ccc;
+			height:435px;
+			-webkit-border-radius: 10px;
+	        -moz-border-radius: 10px;
+	         border-radius: 10px;
+		
+			}
+			
+            div.block{
+		
+			font-weight: bold;
+			font-size: 10px;
+			display: inline-block;
+			vertical-align:top;
+		
+			}
+			
+			a.highlight{
+			font-size: 18px;
+			font-weight:bold;
+			color: Crimson;
+			}
+
+#customWrap{
+	width:850px;
+	padding-left: 42px;
+	padding-bottom: 40px;
+}
+
+#counter{
+	text-align:right;
+	margin-right:3em;
+	font-size:10pt;
+	padding-top: 16px;
+}
+
+#enrichrBox form{
+	margin:0;
+	margin-bottom: 0.1em;
+}
+#gridDiv table{
+	font-size:10px;
+}
+#LCBTitle{
+	text-align: left;
+	color:#626365;
+	padding-left: 50px;
+	margin: 0em;
+	padding-top: 0.5em;
+}
+#searchLCB{
+	text-align: right;
+	font-size:0.8em;
+	padding-right: 3em;
+
+}
+#twoGridAdjust{ padding-top:1em;padding-left:1.6em;font-size: 10px;}
+#nav{
+    font-size:1em;
+	text-align:left;
+	padding-left:2.6em;
+	padding-bottom:0px;
+	padding-top:3px;
+	}
+
+ 
+#nav a {
+	color: #D90000;
+	outline: 0;
+	text-decoration: none;
+	font-size: 1.1em;
+}
+	
+#base + div { vertical-align:top;}
+
+#cellTypeOption,#batchOption{ text-align: left;padding-left:10px;font-size:1em;padding-top:7px;}
+#cellTypeOption  > span:first-child {font-size:7px; vertical-align:top;}
+#cellTypeOption  > span:first-child > span:first-child {color:#D90000;}
+
+div#GSE{
+	height:299px;
+	overflow:auto;
+	
+}
+
+
+
+#enrichrBox{
+	font-weight: bold;
+	font-size: 1em;
+	display: inline-block;
+	float:right;
+	vertical-align: top;
+	padding-top:5px;
+	}
+
+
+
+ #enrichrBox  div div span {color:Crimson;}
+/* #enrichrBox  div div div { font-size:6px; }
+*/ #enrichrBox  div > div { padding-bottom:1px ;}
+ 
+ #GSEElement1{font-size:0.9em;
+			 text-align:start;
+			 margin-left:2.5em;
+			 cursor: default;
+			}
+#GSEElement1>tr{
+	font-weight:normal 
+}
+
+.wordwrap { 
+   white-space: pre-wrap;      /* CSS3 */   
+   white-space: -moz-pre-wrap; /* Firefox */    
+   white-space: -pre-wrap;     /* Opera <7 */   
+   white-space: -o-pre-wrap;   /* Opera 7 */    
+   word-wrap: break-word;      /* IE */
+}
+
+#GSEElement1 div{
+	font-size: 1em;
+}
+ 
+
+textarea {
+   font-family: inherit;
+   font-size: inherit;
+}
+#cellTypeSelect,#batchSelect { width: 7.2em;font-size:1em;}
+ div#enrichrBox select{font-size:1.1em; width:30em; height:1.5em;}
+ div#enrichrBox select option{text-align:center;}
+ div#enrichrBox form input{font-size:10px;}
+ .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { color: brown }
+ #LJPslider a{ top:-.1em;border: 1px solid rgb(192, 191, 190);width:0.9em;height:0.9em;}             
+ #LJPslider{width:22px;height:11px;}
+ #slider a{z-index:1;}
+ .ui-selectmenu-menu li a { font-size:7px}
+ 
+
+
+
+div#correction {
+	text-align: left;
+}
+
+div#infoCorrection{
+}
+
+div#below{
+	width:300px;
+	text-align: center;
+}
+
+#searchBox{
+	margin-left: 0.5em;
+	margin-bottom: 1em;
+	width: 55em;
+}
+
+#searchBoxDiv{
+	text-align: center;
+	margin-left: -3em;
+}
+#searchBoxDiv > span:first-of-type{
+	font-size:1.1em;
+	font-weight: bold;
+}
+.custom-autocomplete-ul{
+	background-color: rgba(255, 255, 255, 0.901961);
+	font-size:0.6em;
+	background-image: none;
+}
+
+.toggleToolTip{
+	cursor:default;
+}
+
+
+.activeToolTip{
+	color:orange;
+}
+
+
+
+.custom-ui-tooltip {
+  font-size: 0.6em; 
+}
+
+
+/*foundation reveal classes*/
+
+.reveal-modal-bg {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: black;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 98;
+  display: none;
+  top: 0;
+  left: 0; }
+
+.reveal-modal {
+  visibility: hidden;
+  display: none;
+  position: absolute;
+  left: 50%;
+  z-index: 99;
+  height: auto;
+  margin-left: -40%;
+  width: 80%;
+  background-color: white;
+  padding: 1.25rem;
+  border: solid 1px #666666;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  top: 50px; }
+  .reveal-modal .column,
+  .reveal-modal .columns {
+    min-width: 0; }
+  .reveal-modal > :first-child {
+    margin-top: 0; }
+  .reveal-modal > :last-child {
+    margin-bottom: 0; }
+  .reveal-modal .close-reveal-modal {
+    font-size: 1.375rem;
+    line-height: 1;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.6875rem;
+    color: #aaaaaa;
+    font-weight: bold;
+    cursor: pointer; }
+
+.flex-video {
+  position: relative;
+  padding-top: 1.5625rem;
+  padding-bottom: 67.5%;
+  height: 0;
+  margin-bottom: 1rem;
+  overflow: hidden; }
+  .flex-video.widescreen {
+    padding-bottom: 57.25%; }
+  .flex-video.vimeo {
+    padding-top: 0; }
+  .flex-video iframe,
+  .flex-video object,
+  .flex-video embed,
+  .flex-video video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }

@@ -1,0 +1,425 @@
+/*
+Theme Name: CMap Custom Theme
+Description: Custom theme for the CMAP website.
+Version: 1.0
+Author: Joe Grassia
+Author URI: http://www.atomicmouse.com/
+Tags: white, two-columns
+
+
+*/
+
+/*
+HTML Boilerplate styles can be found in the html5-boilerplate/css directory.
+*/
+
+
+/* ==========================================================================
+   WordPress Required Styles
+   ========================================================================== */
+
+.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.alignleft {
+	float: left;
+}
+
+.alignright {
+	float: right;
+}
+
+.wp-caption {
+	border: 1px solid #ddd;
+	text-align: center;
+	background-color: #f3f3f3;
+	padding-top: 4px;
+	margin: 10px;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.wp-caption img {
+	margin: 0;
+	padding: 0;
+	border: 0 none;
+}
+
+.wp-caption-dd {
+	font-size: 11px;
+	line-height: 17px;
+	padding: 0 4px 5px;
+	margin: 0;
+}
+
+.sticky {
+	background: #f7f7f7;
+	padding: 0 10px 10px;
+}
+	
+.sticky h2 {
+	padding-top: 10px;
+}
+
+
+
+/* ==========================================================================
+   Theme styles
+   ========================================================================== */
+html {
+	/* force vertical scrollbar */
+	overflow-y: scroll; 
+}
+body {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#626365;
+}
+h1 {
+	font-size:26px;
+	color:#064f8c;
+	margin:0 0 .2em 0;
+}
+h2 {
+	font-size:18px;
+	margin:0 0 .2em 0;
+}	
+h3 {
+	font-size:14px;
+	margin:0 0 .2em 0;
+}
+h4 {
+	font-size:12px;
+	margin:0 0 .2em 0;
+}
+p {
+	margin:.2em 0 1em 0;
+}
+menu, ol, ul {
+    padding: 0 0 0 20px;
+}
+body ul {
+	margin:0 0 1em 0;
+}
+.intro {
+	font-size:15px;
+}
+a {
+	color:#25aae1;
+}
+a:visited {
+	color:#064f8c;
+}
+a:hover {
+	color:#1f90bf;
+}
+small {
+	display:none;
+}
+.forgotpass {
+	width:460px; 
+	text-align:right; 
+	clear:both;
+	display:block;
+}
+
+
+/* ========== SHELL ============ */
+#container {
+	width:1020px;
+	margin:0 auto;
+}
+
+/* ========== HEADER ============ */
+#pageHeader {
+	height:110px;
+	margin:35px 0 25px 0;
+	background:url(images/global/header_border.gif) no-repeat left bottom;
+	position:relative;
+}
+	#pageHeader h1 {
+		margin:0 0 0 14px;
+		float:left;
+	}
+	#pageHeader a.cmap {
+		display:block;
+		text-decoration:none;
+		width:391px;
+		height:62px;
+		background:url(images/global/logo_cmap-temp.jpg) no-repeat left top;
+	}
+#loginOptions {
+	float:right;
+	padding-right:28px;
+}
+	#loginOptions {
+		font-size:11px;
+		text-transform:uppercase;
+		color:#535456;
+	}
+	#loginOptions a {
+		color:#6b6c6f;
+		text-decoration:none;
+	}
+	#loginOptions a:hover {
+		color:#96979b;
+	}
+#loginOptions .divider {
+	padding:0 15px;
+	font-size:11px;
+	color:#cccccc;
+}
+.betaLink {
+	position:absolute;
+	top:64px;
+	right:28px;
+	padding:3px 6px 4px;
+	display:inline-block;
+	background:#5cbfe9;
+	font-size:10px;
+	font-weight:bold;
+	line-height:1;
+}
+body .betaLink a {
+	color:#FFF;
+	
+	text-decoration:none;
+}
+
+
+/* ---- Search Form ----*/
+
+#pageHeader #searchform {
+	position:absolute;
+	top:31px;
+	right:28px;
+	width:158px;
+	height:22px;
+}
+#pageHeader #searchform #s {
+	width:134px;
+	height:18px;
+	border:#cccccc solid 1px;
+	padding:3px 4px 1px 4px;
+	position:absolute;
+	right:24px;
+	color:#999;
+	font-size:12px;
+}
+#pageHeader #searchform #s.focused {
+	color:#000;
+}
+#pageHeader #searchsubmit {
+	display:block;
+	width:24px;
+	height:24px;
+	position:absolute;
+	top:0;
+	right:0;
+}
+* html #pageHeader #searchsubmit  {
+	/* IE6 hack */
+	right:0;
+}
+
+
+
+
+
+/* ========== MAIN ============ */
+#main {
+	width:780px;
+	padding-bottom:40px;
+	float:right;
+}
+
+/* ---- Tables ----*/
+
+table {
+	clear:left;
+}
+table th {
+	background:#93d4f0;
+	border:1px solid #FFF;
+	padding:6px 8px;
+	color:#000;
+	font-weight:bold;
+	font-size:1.1em;
+	line-height:1.2;
+	vertical-align:top;
+	text-align:left;
+}
+table td {
+	background:#d7d7d7;
+	border:1px solid #FFF;
+	padding:6px 8px;
+	color:#000;
+	vertical-align:top;
+}
+
+
+
+
+/* ========== SIDEBAR ============ */
+#sidebar {
+	width:200px;
+	padding-bottom:40px;
+	float:left;
+}
+#sidebar nav ul {
+	padding:0;
+	margin:0;
+}
+#sidebar nav li { 
+	font-family: 'Open Sans', Arial, sans-serif; 
+	font-weight: 800;
+	font-size:14px;
+	text-transform:uppercase; 
+	margin-bottom:18px;
+}
+#sidebar nav a {
+	color:#706e6e;
+	text-decoration:none;
+	display:block;
+	padding:2px 0 2px 14px;
+	background:url(images/global/nav_border.gif) no-repeat 0 bottom
+}
+	#sidebar .current-page-ancestor a {
+		color:#064f8c;
+	}
+
+#sidebar nav a:hover {
+	background:url(images/global/nav_border_roll.gif) no-repeat 0 bottom;
+}
+
+#sidebar .current_page_item a {
+	background:url(images/global/nav_border_roll.gif) no-repeat 0 bottom;
+	color:#f1592a;
+} 
+#sidebar .current_page_item li a {
+	color:#064f8c;
+} 
+
+
+#sidebar nav ul ul {
+	padding:0;
+	margin:0 0 0 14px;
+}
+#sidebar nav li li { 
+	font-family: 'Open Sans', Arial, sans-serif; 
+	font-weight: 700; 
+	font-size:12px;
+	text-transform:none;
+	margin-bottom:0;
+	background:none;
+}
+	#sidebar nav li li.navMarker {
+		font-style:italic;
+		padding:4px 0 2px 0;
+		text-transform:uppercase;
+		color:#afaeae;
+	}
+	#sidebar nav li li a, 
+	#sidebar .current_page_item li a  {
+		border-bottom:1px solid #dedede;
+		background:none;
+	}
+	#sidebar nav li li a:hover,
+	#sidebar .current_page_item li a:hover {
+		/* border-bottom:1px solid #c5d6e4; */
+		background:url(images/global/icon_navbullet.gif) no-repeat left 4px;
+	}
+#sidebar nav li li.current_page_item a,
+#sidebar nav li li.current_page_item a:hover,
+#sidebar nav li li.current-page-ancestor a {
+	/* border-bottom:1px solid #064f8c; */
+	background:url(images/global/icon_navbullet.gif) no-repeat left 4px;
+}
+	
+
+
+
+
+
+
+/* ========== FOOTER ============ */
+#pageFooter {
+	clear:both;
+	margin-bottom:20px;
+	border-top:1px solid #064f8c;
+	font-size:11px;
+	min-height:90px;
+	width:100%;
+	position:relative;
+}
+#pageFooter .copyright {
+	width:500px;
+	float:left;
+	padding:12px 0;	
+}
+
+#pageFooter .logos ul {
+	position:absolute;
+	top:12px;
+	right:0;
+	margin:0;
+}
+#pageFooter .logos li {
+	list-style:none;
+	float:left;
+	margin:0 0 0 65px;
+	padding:0;
+}
+#pageFooter .logos .lincs {
+	display:block;
+	width:180px;
+	height:60px;
+	background:url(lincsStuff/NIH_LINCS_logo.gif) no-repeat left top;
+}
+#pageFooter .logos .broad {
+	display:block;
+	width:115px;
+	height:30px;
+	margin-top:19px;
+	background:url(lincsStuff/logo_broad.gif) no-repeat left top;
+}
+
+
+
+/* ========== HOME ============ */
+#vidArea {
+	width:760px;
+	height:260px;
+	padding:10px;
+	background:#e5e6e6 url(images/home/home_vidBackground.gif) no-repeat left top;
+	margin-bottom:24px;
+}
+#vidArea h2 {
+	margin-bottom:.6em;
+}
+#homeContent {
+	width:530px;
+	float:left;
+}
+#news {
+	width:225px;
+	background:#ebf7fc;
+	float:right;
+}
+#news h2 {
+	color:#064f8c;
+	font-size:18px;
+	text-transform:uppercase;
+	padding:10px 20px;
+	background:#b6e3f5;
+}
+#news .textwidget {
+	padding:12px 20px;
+}
+
+
