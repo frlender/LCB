@@ -62,13 +62,13 @@ setInterval(function(){$.get('http://www.maayanlab.net/LINCS/test/execuTest/getE
 	 	var batchText = d3.select('#batchSelect').selectAll('option')
 	 	              .filter(function(d,i){ return i==g_batchSelectIdx;}).text();
 
-     var url = 'http://www.maayanlab.net/LINCS/test/test2/dataFetch.php?batch=' + batchText;
+     // var url = 'http://www.maayanlab.net/LINCS/test/test2/dataFetch.php?batch=' + batchText;
     // var url = 'http://127.0.0.1/LCB_set/enrcryption/encrypted/dataFetch.php?batch=' + batchText;
-	 	// var url = 'http://www.maayanlab.net/LINCS/test/mutated6/dataFetch.php?batch=' + batchText;
+	 	var url = 'http://www.maayanlab.net/LINCS/test/mutated6/dataFetch.php?batch=' + batchText;
 
     // for test purpose, remove when upload to server
     // if(batchText=='LJP004')
-    //   url = 'http://127.0.0.1/toServer/test/LJP004data.txt'
+    //   url = 'http://127.0.0.1/LCB_data/LJP004data.txt';
 
 	 	var req = new XMLHttpRequest();
 

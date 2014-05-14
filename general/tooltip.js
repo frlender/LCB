@@ -1,26 +1,26 @@
 
-// $( "#upGenes" ).tooltip({
-// 	tooltipClass:"custom-ui-tooltip",
-//     //color label after open event
-//     open: function(event,ui){
-//         $("#upGenes").addClass('activeToolTip');
+$( "#upGenes" ).tooltip({
+	tooltipClass:"custom-ui-tooltip",
+    //color label after open event
+    open: function(event,ui){
+        $("#upGenes").addClass('activeToolTip');
         
-//     },
-//     //remove color from label after close event
-//     close:function(event,ui){
-//         $("#upGenes").removeClass('activeToolTip');
-//     },
-//     });
+    },
+    //remove color from label after close event
+    close:function(event,ui){
+        $("#upGenes").removeClass('activeToolTip');
+    },
+    });
 
-// $( "#dnGenes" ).tooltip({
-// 	tooltipClass:"custom-ui-tooltip",
-//     open: function(event,ui){
-//         $("#dnGenes").addClass('activeToolTip');
-//     },
-//     close:function(event,ui){
-//         $("#dnGenes").removeClass('activeToolTip');
-//     },
-// });
+$( "#dnGenes" ).tooltip({
+	tooltipClass:"custom-ui-tooltip",
+    open: function(event,ui){
+        $("#dnGenes").addClass('activeToolTip');
+    },
+    close:function(event,ui){
+        $("#dnGenes").removeClass('activeToolTip');
+    },
+});
 
 // $('#Regulation').tooltip({
 //         tooltipClass:"custom-ui-tooltip",
@@ -48,29 +48,29 @@
   // visualizer17.js
 
 
-  // tableRenderedListener.listenTo(messenger,'tableRendered',function(){
-  //       $('#GSEElement1').tooltip({
-  //       position: {
-  //           my: "right",
-  //           at: "left",
-  //       },
-  //       show:{
-  //           duration: 100
-  //       },
-  //       hide:{
-  //           duration:100
-  //       },
-  //       tooltipClass:"custom-ui-tooltip",
-  //       items:"[overlap-genes]",
-  //       content: function(){
-  //           return $(this).attr('overlap-genes');
-  //       },
-  //       open: function(event,ui){
-  //           ui.target.addClass('activeToolTip');
+  tableRenderedListener.listenTo(messenger,'tableRendered',function(){
+        $('#GSEElement1').tooltip({
+        position: {
+            my: "right",
+            at: "left",
+        },
+        show:{
+            duration: 100
+        },
+        hide:{
+            duration:100
+        },
+        tooltipClass:"custom-ui-tooltip",
+        items:"[overlap-genes]",
+        content: function(){
+            return $(this).attr('overlap-genes');
+        },
+        open: function(event,ui){
+            ui.target.addClass('activeToolTip');
             
-  //       },
-  //       close:function(event,ui){
-  //           ui.target.removeClass('activeToolTip');
-  //       },
-  //   });
-  // });
+        },
+        close:function(event,ui){
+            ui.target.removeClass('activeToolTip');
+        },
+    });
+  });

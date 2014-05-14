@@ -8,6 +8,38 @@ body {
 	font-size :1em;
 }
 
+#below form{
+	margin-bottom: 0em;
+}
+
+.avgZscore{
+	font-size: 1.5em;
+	display:inline-block;
+	vertical-align: 30;
+}
+
+#multipleSelections{
+	margin-top: 0.7em;
+}
+
+#multipleSelections div{
+	display: inline-block;
+}
+
+#multipleSelections input{
+	vertical-align: -4;
+	margin: 0;
+}
+
+#NetworkView{
+	background-color:white;
+}
+
+.EnlargeNetworkView { position:fixed; top:0; bottom:0; left:0; right:0;
+	width:100%; height:100%; z-index:100;
+}
+
+
 .axis path,
 			.axis line {
 				fill: none;

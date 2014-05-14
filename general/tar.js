@@ -70,7 +70,7 @@ var dG = false;
 	 
 	function showInfoMouseOver(d,i)
 	{
-	   if (g_rectIdx != -1) return; // in clicked state
+	   if (g_rectIdx != -1 ) return; // in clicked state
 	    var cx=this.x.animVal.value;
 		  var cy=this.y.animVal.value;
 		   addFocusi(grid,cx,cy);
@@ -91,8 +91,20 @@ var dG = false;
 function showInfo(d,i)
 {
 
-  
-  tileInfo(this,i);
+  if(!inMultipleSelectionMode())
+  	tileInfo(this,i);
+  else{
+  	var thisTile = d3.select(this);
+	var thisx = thisTile.attr('x');
+    var thisy = thisTile.attr('y');
+	var thisx = parseFloat(thisx);
+    var thisy = parseFloat(thisy);
+
+    multipleSelectedTiles.push([thisx,thisy]);
+
+    drawSelectedOutline('multipleLines',multipleSelectedTiles);
+
+  }
 }
 
 function showInfo2(i,thispassed)
@@ -111,7 +123,9 @@ function tileInfo(per_rect,idx)
 	    if(g_rectIdx == idx)
 		  {
 			  document.getElementById("mainCanvasSelector").checked = true;
-	      selectAlternateView();
+			  console.log('here');
+
+	      selectAlternateView("clear");
 	     indicateClear(G_VAR.nodes);
 	     
 			 clearTileInfo();
@@ -335,9 +349,9 @@ $.get('http://www.maayanlab.net/LINCS/test/execuTest/modifyEnrichCount.php');
 	 	var batchText = d3.select('#batchSelect').selectAll('option')
 	 	              .filter(function(d,i){ return i==g_batchSelectIdx;}).text();
 	
-	 	// var url = 'http://www.maayanlab.net/LINCS/test/mutated6/dataFetch.php?batch=' + batchText;
+	 	var url = 'http://www.maayanlab.net/LINCS/test/mutated6/dataFetch.php?batch=' + batchText;
 	 	 // var url = 'http://127.0.0.1/LCB_set/enrcryption/encrypted/dataFetch.php?batch=' + batchText;
-	 	 var url = 'http://www.maayanlab.net/LINCS/test/test2/dataFetch.php?batch=' + batchText;
+	 	 // var url = 'http://www.maayanlab.net/LINCS/test/test2/dataFetch.php?batch=' + batchText;
 
 		var req = new XMLHttpRequest();
 

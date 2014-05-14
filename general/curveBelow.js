@@ -15,6 +15,40 @@ function curveBelow(idx)
                            .attr('max',4)
                            .attr('step',0.01)
                            .attr('onchange','updateContrast(this.value)');
+   
+      var legendLength = size*0.6;
+      var legendRange = d3.range(0,2.05,0.05);
+      var rectWidth = legendLength/legendRange.length;
+       var backgroundHeight = size/6;
+    var rectHeight = size/24;
+ 	var rectsTx = 0;
+	var rectsTy = backgroundHeight/4-rectHeight/2;
+	var axisTx = rectsTx;
+	var axisTy = rectsTy + rectHeight*1.2;
+	var below = below.append('div');
+	below.append('div').attr('class','avgZscore').text('Avg. Z-score:');
+      var belowSvg = below.append('svg').attr('width',200)
+      				     				.attr('height',50)
+      				     				.style('margin-left','0.8em');
+      belowSvg.append('g').attr('transform',"translate("+rectsTx+","+rectsTy+")")
+      				   .selectAll('rect').data(legendRange).enter()
+      				   .append('rect')
+      				   .attr('width',rectWidth)
+      				   .attr('height',size/24)
+      				   .attr('x',function(d,i){return i*rectWidth})
+      				   .attr('fill',function(d){return avg_scale(d/w_max)});
+
+      var intergerRange = d3.range(0,3);	
+	var lengthRange = [];
+	intergerRange.forEach(function(e,i,a){ lengthRange.push(i*legendLength/(intergerRange.length-1)); });
+    var scale= d3.scale.ordinal().domain(intergerRange).range(lengthRange);
+   var axis = d3.svg.axis().scale(scale).orient("bottom");	
+     belowSvg.append('g').attr("transform","translate("+axisTx+","+axisTy+")")
+                        .attr("class","axis")
+	                    .call(axis)
+						.selectAll('text').attr('style','font-size:8px');
+
+
          break;
      
      case 1:
@@ -55,6 +89,8 @@ function  updateContrast(contrast)
 	avg_scale.exponent(contrast);
 
 	tiles.attr('fill',function(d){return avg_scale(d[5]/w_max);});
+
+	d3.select("#below").selectAll('rect').attr('fill',function(d){return avg_scale(d/w_max);});
  }
  
  function drawLengend(idx)

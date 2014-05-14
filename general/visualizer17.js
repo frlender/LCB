@@ -203,14 +203,19 @@
 		}
 
 	}
-	function selectAlternateView(){
+	function selectAlternateView(option){
 	
 		if (document.getElementById("mainCanvasSelector").checked){
-			
+
+			console.log(option);
+			if(option!="clear")
+			lastView = "mainCanvasSelector";
+
 			document.getElementById("chartContainer").style.display = "none";
 			document.getElementById("svgContainer").style.display="block";
 			document.getElementById("pvalueContainer").style.display="none"
 			document.getElementById("selectionDisplay4").style.display="none";
+			d3.select("#enrichBelow").style('display','none');
 			if ($("#NetworkView").empty() == false){
 				document.getElementById("NetworkView").style.display="none";
 			}
@@ -226,10 +231,12 @@
 		
 		} else if (document.getElementById("networkView").checked){
 			
+			lastView = "networkView";
 			document.getElementById("chartContainer").style.display = "block";
 			document.getElementById("svgContainer").style.display="none";
 			document.getElementById("pvalueContainer").style.display="none"
 			document.getElementById("selectionDisplay4").style.display="none";
+			d3.select("#enrichBelow").style('display','none');
 			document.getElementById("NetworkView").style.display="inline";
 			document.getElementById("pvalueSVG").style.display="none";
 			document.getElementById("mainSVG").style.display="none";
@@ -240,6 +247,7 @@
 		
 		} else if (document.getElementById("pvalueCanvas").checked){
 			
+			lastView = "pvalueCanvas";
 			document.getElementById("chartContainer").style.display = "none";
 			document.getElementById("svgContainer").style.display="none";
 			document.getElementById("pvalueContainer").style.display="block";
@@ -247,16 +255,21 @@
 			document.getElementById("NetworkView").style.display="none";
 			document.getElementById("mainSVG").style.display="inline";
 			document.getElementById("pvalueSVG").style.display="inline";
+			d3.select("#enrichBelow").style('display','block');
+
 		
 		} else if (document.getElementById("showTable").checked){
-		
+			
+			lastView = "showTable";
 			document.getElementById("chartContainer").style.display = "none";
 			document.getElementById("svgContainer").style.display="none";
 			document.getElementById("pvalueContainer").style.display="none";
 			document.getElementById("selectionDisplay4").style.display="block";
 			document.getElementById("NetworkView").style.display="none";
 			document.getElementById("mainSVG").style.display="inline";
-			document.getElementById("pvalueSVG").style.display="inline";		
+			document.getElementById("pvalueSVG").style.display="inline";
+			d3.select("#enrichBelow").style('display','none');
+		
 		
 		
 		}
@@ -310,8 +323,47 @@
 					rec.attr("fill", "rgb(0,0,0)")
 				}
 				
-		}			
+		}
+
+
 		document.getElementById("pvalueCanvas").disabled = false;
+
+		// draw pvalue legend
+		var legendLength = size*0.6;
+      var legendRange = _.map(nodeList,function(item){return parseFloat(item[1]);});
+      var rectWidth = legendLength/legendRange.length;
+       var backgroundHeight = size/6;
+    var rectHeight = size/24;
+ 	var rectsTx = 0;
+	var rectsTy = backgroundHeight/4-rectHeight/2;
+	var axisTx = rectsTx;
+	var axisTy = rectsTy + rectHeight*1.2;
+	var below = d3.select("#enrichBelow").style('display','none');
+	below.append('div').attr('class','avgZscore').text('p value:');
+      var belowSvg = below.append('svg').attr('width',240)
+      				     				.attr('height',50)
+      				     				.style('margin-left','0.8em');
+      				     				// .style('background-color','black');
+      belowSvg.append('g').attr('transform',"translate("+rectsTx+","+rectsTy+")")
+      				   .selectAll('rect').data(legendRange).enter()
+      				   .append('rect')
+      				   .attr('width',rectWidth)
+      				   .attr('height',size/24)
+      				   .attr('x',function(d,i){return i*rectWidth;})
+      				   .attr('fill',function(d){
+      				   		var oriNumBase = Math.floor(255*(0.4+0.6*(1-(d-min)/(max-min))));
+      				   		return "rgb("+oriNumBase+','+oriNumBase+','+oriNumBase+")";});
+
+      var intergerRange = [legendRange[0],legendRange[legendRange.length-1]];	
+	var lengthRange = [];
+	intergerRange.forEach(function(e,i,a){ lengthRange.push(i*legendLength/(intergerRange.length-1)); });
+    var scale= d3.scale.ordinal().domain(intergerRange).range(lengthRange);
+   var axis = d3.svg.axis().scale(scale).orient("bottom");	
+     belowSvg.append('g').attr("transform","translate("+axisTx+","+axisTy+")")
+                        .attr("class","axis")
+	                    .call(axis)
+						.selectAll('text').attr('style','font-size:8px');
+
 			
 	}
 			
@@ -483,9 +535,9 @@
 				
 				return;
 			};
-			url = 'http://www.maayanlab.net/LINCS/test/test2/';
+			// url = 'http://www.maayanlab.net/LINCS/test/test2/';
 			// url = 'http://127.0.0.1/LCB_set/enrcryption/encrypted/'
-			// url = 'http://www.maayanlab.net/LINCS/test/Chris_vis/';
+			url = 'http://www.maayanlab.net/LINCS/test/Chris_vis/';
 			document.getElementById("selectCanvas").disabled = "disabled";
 			var xmlhttp = createXMLhttp();
 			xmlhttp.open("GET",url+"getGMT_byQiaonan.php?number=" + number, true);
@@ -525,6 +577,7 @@
 			d3.selectAll(".GSE").remove();
 			d3.select("div#manhattan").remove();
 			d3.select("svg#pvalueSVG").remove();
+			d3.select("#enrichBelow").selectAll("*").remove();
 
 			document.getElementById("mainCanvasSelector").checked = "checked";
 			document.getElementById("networkView").disabled = true;
@@ -738,7 +791,9 @@
 		
 	}
 
-	function buildNetwork(links, w, indicatorColor){
+
+function buildNetwork(links, w, indicatorColor){
+		// in old
 		var nodes ={};
 		var indicatorColor = [0,255,255];
 			links.forEach(
@@ -754,14 +809,15 @@
 						  .linkDistance(60).charge(-300)
 						  .on("tick", tick).start();
 			
-			
+			var zoom = d3.behavior.zoom().on("zoom", redraw);
 			var svg = d3.select("div#chartContainer").append("svg:svg")
 						.attr("class", "chart").attr("id", "NetworkView")
 						.attr("height", w).attr("width", w)
 						.style("display", "none")
 						.attr("pointer-events", "all").append('svg:g')
-						.call(d3.behavior.zoom().on("zoom", redraw))
-						.append('svg:g');
+						.call(zoom)
+						.append('svg:g')
+						.attr('id','zoom-g');
 
 			svg.append('svg:rect').attr('width', w*75).attr('height', w*75)
 								  .attr("x", w*-32.5).attr("y", w*-32.5)
@@ -786,6 +842,53 @@
 				.style("pointer-events", "none").text(function(d) { return d.name; });
 			
 			document.getElementById("networkView").disabled = false;	
+
+
+			d3.select("#NetworkView").append('svg:image')
+				.attr("xlink:href","CSS/images/fullscreen.png")
+				.attr("width",20)
+				.attr("height",20)
+				.attr('id','enlargeNetwork')
+				.style('opacity',0.65)
+				.on('mouseover',function(){
+					d3.select("#enlargeNetwork").style('opacity',1);
+				})
+				.on('mouseout',function(){
+					d3.select("#enlargeNetwork").style('opacity',0.65);
+				})
+				.on('click',enlargeNetworkView);	
+
+				d3.select("#NetworkView").append('svg:image')
+				.attr("xlink:href","CSS/images/normalsize.png")
+				.attr("width",20)
+				.attr("height",20)
+				.attr('id','shrinkNetwork')
+				.style('opacity',0.65)
+				.style('display','none')
+				.on('mouseover',function(){
+					d3.select("#shrinkNetwork").style('opacity',1);
+				})
+				.on('mouseout',function(){
+					d3.select("#shrinkNetwork").style('opacity',0.65);
+				})
+				.on('click',shrinkNetworkView);
+
+			function enlargeNetworkView(){
+				d3.select('#NetworkView').attr('class','EnlargeNetworkView');
+				d3.select('#enlargeNetwork').style('display','none');
+				d3.select('#shrinkNetwork').style('display','inline');
+
+			}
+
+			function shrinkNetworkView(){
+				d3.select('#NetworkView').attr('class','');
+				d3.select('#shrinkNetwork').style('display','none');
+				d3.select('#enlargeNetwork').style('display','inline');
+				zoom.scale(1);
+				zoom.translate([0,0]);
+				d3.select('#networkView g g').attr('transform', 'translate(' + zoom.translate() + ') scale(' + zoom.scale() + ')');
+			}	
+
 
 			function tick(){
 				link.attr('x1', function(d) { return d.source.x; })
@@ -865,6 +968,8 @@
 			
 			document.getElementById("networkView").disabled = true;
 			document.getElementById("pvalueCanvas").disabled = true;
+
+			console.log('geneFill');
 			
 			
 			var contA, contB, contC, contD;
@@ -1019,7 +1124,7 @@
 
 			// Creates the table for the Gene Set Enrichment
 
-			var GSE = d3.select("#selectionDisplay4").append("div").attr("class", "GSE").attr("id", "GSE")
+			var GSE = d3.select("#selectionDisplay4").style('display','none').append("div").attr("class", "GSE").attr("id", "GSE");
 
 
 			baseTable = GSE.append("table").attr("id", "GSEElement1").attr("class", "contain");
@@ -1079,7 +1184,8 @@
 					d3.selectAll("#textdownload").remove();
 					d3.selectAll("#toggleChart").remove();
 
-					document.getElementById("showTable").checked = true;
+					document.getElementById(lastView).checked = true;
+					if(lastView!="mainCanvasSelector")
 					selectAlternateView();
 
 					
